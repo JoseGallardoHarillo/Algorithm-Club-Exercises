@@ -25,17 +25,27 @@ input = 3
 output = 4
 '''
 
-def diceCombinations(n):
-    dice = [1,2,3,4,5,6]
-    counter = 0
+#dp[n]= dp[n−1] + dp[n−2] + dp[n−3] ... + dp[n - 6]
 
-    for i in range(0,len(dice) - 1):
-        for j in range(0,len(dice) - 1):
-            if(i + j == n):
-                counter += 1
-    
+mem = {} #Used to memorise the recursivity steps
+
+def diceCombinations(n, mem):
+    #dice = [1,2,3,4,5,6] = Actions
+
+    if(n == 0): return 1 #base case
+    elif(n < 0): return 0 #constraint
+    elif(n in mem): return mem[n]
+    else:
+        counter = 0        
+        counter += diceCombinations(n - 1, mem) + diceCombinations(n - 2, mem) + diceCombinations(n - 3, mem) + diceCombinations(n - 4, mem) + diceCombinations(n - 5, mem) + diceCombinations(n - 6, mem)
+        mem[n] = counter
     return counter
 
-n = int(input("Introduce el valor de n: "))
+def main():
+    #mem.clear
 
-print(diceCombinations(n))
+    n = int(input("Introduce el valor de n: "))
+
+    print(diceCombinations(n, mem))
+
+main()
