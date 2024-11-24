@@ -27,8 +27,6 @@ output = 4
 
 #dp[n]= dp[n−1] + dp[n−2] + dp[n−3] ... + dp[n - 6]
 
-mem = {} #Used to memorise the recursivity steps
-
 def diceCombinations(n, mem):
     #dice = [1,2,3,4,5,6] = Actions
 
@@ -36,16 +34,15 @@ def diceCombinations(n, mem):
     elif(n < 0): return 0 #constraint
     elif(n in mem): return mem[n]
     else:
-        counter = 0        
+        counter = 0  
         counter += diceCombinations(n - 1, mem) + diceCombinations(n - 2, mem) + diceCombinations(n - 3, mem) + diceCombinations(n - 4, mem) + diceCombinations(n - 5, mem) + diceCombinations(n - 6, mem)
         mem[n] = counter
     return counter
 
 def main():
     #mem.clear
-
+    mem = {} #Used to memorise the recursivity steps
     n = int(input("Introduce el valor de n: "))
-
     print(diceCombinations(n, mem))
 
 main()
