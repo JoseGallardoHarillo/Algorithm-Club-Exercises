@@ -30,7 +30,7 @@ output = 4
 def diceCombinations(n, mem):
     #dice = [1,2,3,4,5,6] = Actions
 
-    MOD = 10**9 + 7  # Modulo constraint
+    MOD = 10**9 + 7  # constraint module
 
     if(n == 0): return 1 #base case
     elif(n < 0): return 0 #constraint
