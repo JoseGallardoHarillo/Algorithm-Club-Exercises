@@ -30,19 +30,21 @@ output = 4
 def diceCombinations(n, mem):
     #dice = [1,2,3,4,5,6] = Actions
 
+    MOD = 10**9 + 7  # Modulo constraint
+
     if(n == 0): return 1 #base case
     elif(n < 0): return 0 #constraint
     elif(n in mem): return mem[n]
     else:
         counter = 0  
-        counter += diceCombinations(n - 1, mem) + diceCombinations(n - 2, mem) + diceCombinations(n - 3, mem) + diceCombinations(n - 4, mem) + diceCombinations(n - 5, mem) + diceCombinations(n - 6, mem)
+        counter += (diceCombinations(n - 1, mem) + diceCombinations(n - 2, mem) + diceCombinations(n - 3, mem) + diceCombinations(n - 4, mem) + diceCombinations(n - 5, mem) + diceCombinations(n - 6, mem)) % MOD
         mem[n] = counter
     return counter
 
 def main():
     #mem.clear
     mem = {} #Used to memorise the recursivity steps
-    n = int(input("Introduce el valor de n: "))
+    n = int(input())
     print(diceCombinations(n, mem))
 
 main()
