@@ -25,8 +25,6 @@ input = 3
 output = 4
 '''
 
-#dp[n]= dp[n−1] + dp[n−2] + dp[n−3] ... + dp[n - 6]
-
 def diceCombinations(n, mem):
     #dice = [1,2,3,4,5,6] = Actions
 
@@ -37,6 +35,7 @@ def diceCombinations(n, mem):
     elif(n in mem): return mem[n]
     else:
         counter = 0  
+        #dp[n]= dp[n−1] + dp[n−2] + dp[n−3] ... + dp[n - 6]
         counter += (diceCombinations(n - 1, mem) + diceCombinations(n - 2, mem) + diceCombinations(n - 3, mem) + diceCombinations(n - 4, mem) + diceCombinations(n - 5, mem) + diceCombinations(n - 6, mem)) % MOD
         mem[n] = counter
     return counter
