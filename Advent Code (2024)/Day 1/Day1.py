@@ -75,7 +75,7 @@ def main():
 
     #file input
     
-    with open("input.txt", "r") as file:
+    with open("Day1_input.txt", "r") as file:
 
         for line in file:
         
