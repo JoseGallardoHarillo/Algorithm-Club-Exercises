@@ -55,7 +55,7 @@ def main():
     l1 = []
     l2 = []
     
-    #input por consola
+    #console input
 
     '''
     print("Input:")
@@ -73,7 +73,7 @@ def main():
     
     '''
 
-    #file
+    #file input
     
     with open("input.txt", "r") as file:
 
