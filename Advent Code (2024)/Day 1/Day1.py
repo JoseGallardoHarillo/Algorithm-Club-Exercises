@@ -84,19 +84,21 @@ def main():
             l1.append(col1)
             l2.append(col2)
 
+    print("Exercise 1")
+
+    l1_1 = l1.copy()
+    l2_1 = l2.copy()
+
+    res1 = day1_1(l1_1, l2_1)
+    
+    print("output: ",res1)
+
     print("Exercise 2")
 
     res2 = day1_2(l1, l2)
 
     print("output: ",res2)
 
-'''
-    print("Exercise 1")
 
-    res1 = day1_1(l1, l2)
-    
-    print("output: ",res1)
-
-'''
 
 main()
